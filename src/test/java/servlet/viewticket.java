@@ -4,7 +4,7 @@ import java.util.*;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import java.sql.*;
-//comment
+
 public class viewticket extends HttpServlet {
 	
 	public void service(HttpServletRequest req,HttpServletResponse res)
