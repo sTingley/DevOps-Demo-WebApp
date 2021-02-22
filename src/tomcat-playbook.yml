@@ -1,0 +1,22 @@
+---
+- hosts: webservers
+  become: yes
+  become_method: sudo
+  remote_user: root
+  tasks:
+    - name: Update and upgrade apt packages
+      apt:
+        upgrade: 'yes'
+        update_cache: 'yes'
+        cache_valid_time: 86400
+    #- name: Download Tomcat Script
+    #  get_url: url=https://raw.githubusercontent.com/devopsbc01/Scripts/master/tomcat.sh dest=/home/ubuntu
+    #- name: Run Install Script
+    #  shell: bash /home/ubuntu/tomcat.sh
+    - name: Install Tomcat
+      action: apt pkg={{item}} state=latest
+      with_items:
+      - tomcat8
+      - tomcat8-docs
+      - tomcat8-examples
+      - tomcat8-admin`
